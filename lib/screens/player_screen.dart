@@ -14,11 +14,21 @@ class PlayerScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(word.word),
       ),
-      body: Column(
-        children: [
-          PlayerWidget(word.stream.getUrl),
-          if (word.comment != null) Text(word.comment!),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            PlayerWidget(word.stream.getUrl),
+            if (word.comment != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Card(
+                    child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Text(word.comment!),
+                )),
+              ),
+          ],
+        ),
       ),
     );
   }
