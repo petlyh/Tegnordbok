@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tegnordbok/models.dart';
+import 'package:tegnordbok/screens/example_screen.dart';
+import 'package:tegnordbok/screens/navigation.dart';
 import 'package:tegnordbok/widgets/player.dart';
 
 class PlayerScreen extends ConsumerWidget {
@@ -27,6 +29,15 @@ class PlayerScreen extends ConsumerWidget {
                   child: Text(word.comment!),
                 )),
               ),
+            if (word.examples.isNotEmpty)
+              ...word.examples
+                  .asMap()
+                  .entries
+                  .map((entry) => ElevatedButton(
+                      onPressed: pushScreen(
+                          context, ExampleScreen(entry.value, entry.key + 1)),
+                      child: Text("Eksempel ${entry.key + 1}")))
+                  .toList(),
           ],
         ),
       ),

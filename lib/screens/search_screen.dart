@@ -5,6 +5,8 @@ import 'package:tegnordbok/models.dart';
 import 'package:tegnordbok/screens/player_screen.dart';
 import 'package:tegnordbok/widgets/loader.dart';
 
+import 'navigation.dart';
+
 final searchControllerProvider = Provider((_) => TextEditingController());
 final searchFocusProvider = Provider((_) => FocusNode());
 final queryProvider = StateProvider((_) => "");
@@ -82,8 +84,7 @@ class WordItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(word.word),
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => PlayerScreen(word))),
+      onTap: pushScreen(context, PlayerScreen(word)),
     );
   }
 }
