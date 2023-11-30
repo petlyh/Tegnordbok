@@ -10,8 +10,23 @@ Future<List<Word>> fetchAllWords() async {
   final tegnwikiWords = await _fetchWords(TegnwikiSource());
   final allWords = tegnordbokWords + tegnwikiWords;
 
-  allWords.sort((a, b) => a.word.compareTo(b.word));
+  allWords.sort(_compare);
   return allWords;
+}
+
+final _startsWithDigitPattern = RegExp(r"^\d");
+bool _startsWithDigit(String input) => _startsWithDigitPattern.hasMatch(input);
+
+int _compare(Word a, Word b) {
+  final aStartsWithDigit = _startsWithDigit(a.word);
+  final bStartsWithDigit = _startsWithDigit(b.word);
+
+  // put words that starts with digits at the end
+  if (aStartsWithDigit != bStartsWithDigit) {
+    return aStartsWithDigit ? 1 : -1;
+  }
+
+  return a.word.toLowerCase().compareTo(b.word.toLowerCase());
 }
 
 Future<List<Word>> _fetchWords(Source source) async {
