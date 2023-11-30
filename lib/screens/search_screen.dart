@@ -30,7 +30,7 @@ class SearchScreen extends ConsumerWidget {
           decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
               border: InputBorder.none,
-              hintText: "Search...",
+              hintText: "Søk...",
               suffixIcon: IconButton(
                 icon: const Icon(Icons.clear),
                 onPressed: () {
@@ -38,7 +38,7 @@ class SearchScreen extends ConsumerWidget {
                   searchController.clear();
                   onChange("");
                 },
-                tooltip: "Clear",
+                tooltip: "Tøm",
               )),
         ),
       ),
