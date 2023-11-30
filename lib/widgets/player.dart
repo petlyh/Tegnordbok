@@ -29,7 +29,11 @@ class PlayerWidget extends ConsumerWidget {
         children: [
           AspectRatio(
             aspectRatio: controller.value.aspectRatio,
-            child: VideoPlayer(controller),
+            child: GestureDetector(
+                onTap: () => controller.value.isPlaying
+                    ? controller.pause()
+                    : controller.play(),
+                child: VideoPlayer(controller)),
           ),
         ],
       ),
