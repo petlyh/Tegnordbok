@@ -24,6 +24,7 @@ dependencies:
   text_search: ^1.0.1
   shared_preferences: ^2.2.2
   package_info_plus: ^4.2.0
+  dynamic_color: ^1.6.8
 
 dev_dependencies:
   flutter_test:

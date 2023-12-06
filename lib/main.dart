@@ -1,3 +1,4 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,31 +18,41 @@ void main() async {
   ));
 }
 
+const mainColor = Colors.blue;
+
 class TegnordbokApp extends ConsumerWidget {
   const TegnordbokApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
-      title: "Tegnordbok",
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      locale: const Locale("nb", "NO"),
-      supportedLocales: const [Locale("nb", "NO")],
-      themeMode: ref.watch(themeModeProvider),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.blue, brightness: Brightness.dark),
-        useMaterial3: true,
-        brightness: Brightness.dark,
-      ),
-      home: const SearchScreen(),
-    );
+    return DynamicColorBuilder(builder: (lightDynamic, darkDynamic) {
+      final themeMode = ref.watch(themeModeProvider);
+      final dynamicColors = ref.watch(dynamicColorsProvider);
+
+      return MaterialApp(
+        title: "Tegnordbok",
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        locale: const Locale("nb", "NO"),
+        supportedLocales: const [Locale("nb", "NO")],
+        themeMode: themeMode,
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: dynamicColors ? lightDynamic : null,
+          colorSchemeSeed:
+              lightDynamic == null || !dynamicColors ? mainColor : null,
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          useMaterial3: true,
+          colorScheme: dynamicColors ? darkDynamic : null,
+          colorSchemeSeed:
+              darkDynamic == null || !dynamicColors ? mainColor : null,
+        ),
+        home: const SearchScreen(),
+      );
+    });
   }
 }

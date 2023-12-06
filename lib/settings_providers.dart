@@ -20,7 +20,7 @@ extension ThemeModeString on ThemeMode {
 }
 
 class ThemeModeNotifier extends Notifier<ThemeMode> {
-  static const key = "thememode";
+  static const key = "theme_mode";
   static const themes = ["Enhetstema", "Lys", "Mørk"];
   static const defaultValue = "Enhetstema";
 
@@ -45,4 +45,23 @@ class ThemeModeNotifier extends Notifier<ThemeMode> {
         "Mørk" => ThemeMode.dark,
         _ => throw Exception("Unknown theme: $input"),
       };
+}
+
+final dynamicColorsProvider =
+    NotifierProvider<DynamicColorsNotifier, bool>(DynamicColorsNotifier.new);
+
+class DynamicColorsNotifier extends Notifier<bool> {
+  static const key = "dynamic_colors";
+  static const themes = ["Enhetstema", "Lys", "Mørk"];
+  static const defaultValue = "Enhetstema";
+
+  @override
+  bool build() => get();
+
+  bool get() => ref.read(preferencesProvider).getBool(key) ?? true;
+
+  void set(bool input) {
+    state = input;
+    ref.read(preferencesProvider).setBool(key, input);
+  }
 }
