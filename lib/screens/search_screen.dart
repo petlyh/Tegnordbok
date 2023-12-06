@@ -75,7 +75,10 @@ class WordListWidget extends ConsumerWidget {
     final results = _search(query, words);
 
     final scrollController = ref.read(wordListScrollControllerProvider);
-    scrollController.jumpTo(0);
+
+    if (scrollController.hasClients) {
+      scrollController.jumpTo(0);
+    }
 
     return ListView.builder(
       controller: scrollController,
