@@ -65,7 +65,7 @@ class SpeedWidget extends ConsumerWidget {
         ),
         segments: speedValues
             .map((value) =>
-                ButtonSegment(value: value, label: Text(value.toString())))
+                ButtonSegment(value: value, label: Text("${value}x")))
             .toList(),
         selected: {speed},
         onSelectionChanged: (selected) {
