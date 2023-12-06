@@ -1,8 +1,8 @@
-import 'dart:io';
+import "dart:io";
 
-import 'package:tegnordbok/models.dart';
-import 'package:tegnordbok/sources.dart';
-import 'package:xml/xml.dart';
+import "package:tegnordbok/models.dart";
+import "package:tegnordbok/sources.dart";
+import "package:xml/xml.dart";
 import "package:http/http.dart" as http;
 
 Future<List<Word>> fetchAllWords() async {

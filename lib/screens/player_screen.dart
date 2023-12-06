@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tegnordbok/models.dart';
-import 'package:tegnordbok/screens/example_screen.dart';
-import 'package:tegnordbok/screens/navigation.dart';
-import 'package:tegnordbok/widgets/player.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:tegnordbok/models.dart";
+import "package:tegnordbok/screens/example_screen.dart";
+import "package:tegnordbok/screens/navigation.dart";
+import "package:tegnordbok/widgets/player.dart";
 
 class PlayerScreen extends ConsumerWidget {
   const PlayerScreen(this.word, {super.key});

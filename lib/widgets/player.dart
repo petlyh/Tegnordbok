@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tegnordbok/widgets/loader.dart';
-import 'package:video_player/video_player.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:tegnordbok/widgets/loader.dart";
+import "package:video_player/video_player.dart";
 
 final videoControllerProvider = FutureProvider.autoDispose
     .family((ref, Future<String> Function() getUrl) async {

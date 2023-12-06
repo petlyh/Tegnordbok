@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:tegnordbok/fetch.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:tegnordbok/fetch.dart";
 
 void main() {
   test("word", () async {

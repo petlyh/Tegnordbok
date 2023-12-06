@@ -1,8 +1,8 @@
-import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:tegnordbok/settings_providers.dart';
+import "package:dynamic_color/dynamic_color.dart";
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:package_info_plus/package_info_plus.dart";
+import "package:tegnordbok/settings_providers.dart";
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});

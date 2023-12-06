@@ -1,4 +1,4 @@
-import 'package:tegnordbok/piped.dart';
+import "package:tegnordbok/piped.dart";
 
 class Word {
   final String word;

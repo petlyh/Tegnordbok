@@ -1,4 +1,4 @@
-import 'dart:convert';
+import "dart:convert";
 
 import "package:http/http.dart" as http;
 
@@ -23,7 +23,7 @@ class Piped {
     final data = jsonDecode(response.body) as Map<String, dynamic>;
 
     if (data["error"] != null) {
-      throw PipedException(data["message"], data["error"]);
+      throw PipedException(data["message"] as String, data["error"] as String);
     }
 
     return data;

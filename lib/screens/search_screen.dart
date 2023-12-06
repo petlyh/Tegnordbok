@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tegnordbok/fetch.dart';
-import 'package:tegnordbok/models.dart';
-import 'package:tegnordbok/screens/player_screen.dart';
-import 'package:tegnordbok/screens/settings_screen.dart';
-import 'package:tegnordbok/widgets/loader.dart';
-import 'package:text_search/text_search.dart';
+import "package:flutter/material.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:tegnordbok/fetch.dart";
+import "package:tegnordbok/models.dart";
+import "package:tegnordbok/screens/player_screen.dart";
+import "package:tegnordbok/screens/settings_screen.dart";
+import "package:tegnordbok/widgets/loader.dart";
+import "package:text_search/text_search.dart";
 
-import 'navigation.dart';
+import "navigation.dart";
 
 final searchControllerProvider = Provider((_) => TextEditingController());
 final searchFocusProvider = Provider((_) => FocusNode());
@@ -21,7 +21,7 @@ class SearchScreen extends ConsumerWidget {
     final searchController = ref.read(searchControllerProvider);
     final searchFocusNode = ref.read(searchFocusProvider);
 
-    void onChange(text) => ref.read(queryProvider.notifier).state = text;
+    void onChange(String text) => ref.read(queryProvider.notifier).state = text;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

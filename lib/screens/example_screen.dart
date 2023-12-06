@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:tegnordbok/models.dart';
-import 'package:tegnordbok/widgets/player.dart';
+import "package:flutter/material.dart";
+import "package:tegnordbok/models.dart";
+import "package:tegnordbok/widgets/player.dart";
 
 class ExampleScreen extends StatelessWidget {
   const ExampleScreen(this.example, this.index, {super.key});

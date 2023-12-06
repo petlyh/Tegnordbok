@@ -1,4 +1,4 @@
-import 'package:tegnordbok/models.dart';
+import "package:tegnordbok/models.dart";
 
 sealed class Source {
   String get dataUrl;
