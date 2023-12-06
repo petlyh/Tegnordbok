@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tegnordbok/fetch.dart';
 import 'package:tegnordbok/models.dart';
 import 'package:tegnordbok/screens/player_screen.dart';
+import 'package:tegnordbok/screens/settings_screen.dart';
 import 'package:tegnordbok/widgets/loader.dart';
 import 'package:text_search/text_search.dart';
 
@@ -45,6 +46,13 @@ class SearchScreen extends ConsumerWidget {
                 tooltip: "Tøm",
               )),
         ),
+        actions: [
+          IconButton(
+            onPressed: pushScreen(context, const SettingsScreen()),
+            icon: const Icon(Icons.settings),
+            tooltip: "Innstillinger",
+          ),
+        ],
       ),
       body: const LoaderWidget(
         onLoad: fetchAllWords,
