@@ -4,6 +4,7 @@ import 'package:tegnordbok/fetch.dart';
 import 'package:tegnordbok/models.dart';
 import 'package:tegnordbok/screens/player_screen.dart';
 import 'package:tegnordbok/widgets/loader.dart';
+import 'package:text_search/text_search.dart';
 
 import 'navigation.dart';
 
@@ -24,6 +25,7 @@ class SearchScreen extends ConsumerWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: TextField(
           controller: searchController,
           focusNode: searchFocusNode,
@@ -52,6 +54,8 @@ class SearchScreen extends ConsumerWidget {
   }
 }
 
+final wordListScrollControllerProvider = Provider((_) => ScrollController());
+
 class WordListWidget extends ConsumerWidget {
   const WordListWidget(this.words, {super.key});
 
@@ -60,17 +64,15 @@ class WordListWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final query = ref.watch(queryProvider);
+    final results = _search(query, words);
 
-    final filteredWords = query.isNotEmpty
-        ? words
-            .where(
-                (word) => word.word.toLowerCase().contains(query.toLowerCase()))
-            .toList()
-        : words;
+    final scrollController = ref.read(wordListScrollControllerProvider);
+    scrollController.jumpTo(0);
 
     return ListView.builder(
-      itemCount: filteredWords.length,
-      itemBuilder: (_, index) => WordItem(word: filteredWords[index]),
+      controller: scrollController,
+      itemCount: results.length,
+      itemBuilder: (_, index) => WordItem(word: results[index]),
     );
   }
 }
@@ -87,4 +89,16 @@ class WordItem extends StatelessWidget {
       onTap: pushScreen(context, PlayerScreen(word)),
     );
   }
+}
+
+List<Word> _search(String query, List<Word> words) {
+  if (query.trim().isEmpty) {
+    return words;
+  }
+
+  final textSearchItems = words
+      .map((word) => TextSearchItem.fromTerms(word, word.word.split(" ")))
+      .toList();
+
+  return TextSearch(textSearchItems).fastSearch(query, matchThreshold: 0.4);
 }
