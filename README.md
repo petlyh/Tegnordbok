@@ -1,16 +1,18 @@
-# tegnordbok
+<div align="center">
 
-A new Flutter project.
+<img src="assets/icon.png" width="125" style="margin:25px; border-radius:20%">
 
-## Getting Started
+# **Tegnordbok**
 
-This project is a starting point for a Flutter application.
+En moderne ordbokapp for Norsk tegnspråk med åpen kildekode.
 
-A few resources to get you started if this is your first Flutter project:
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img alt="License: GPLv3" src="https://img.shields.io/badge/license-GPLv3-red.svg?style=flat-square"></a>
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Bruk av eksterne tjenester
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Appen henter og viser ordbokdata fra Statpeds [Tegnordbok](https://www.minetegn.no/Tegnordbok-2016/tegnordbok.php) og [TegnWiki](https://www.minetegn.no/tegnordbok/tegnwiki/) og henter YouTube-videoer gjennom [Piped.video](https://piped.video).
+
+## Lisens
+
+Tegnordbok-appen er fri programvare (Free Software). Du kan bruke, studere, dele og forbedre den etter eget ønske. Spesifikt kan du redistribuere og/eller modifisere den i henhold til vilkårene i [GNU General Public License version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) slik den er publisert av Free Software Foundation.
