@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icon.png" width="125" style="margin:25px; border-radius:20%">
+<img src="assets/icon.png" width="125"><br>
 
 # **Tegnordbok**
 
