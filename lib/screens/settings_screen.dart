@@ -67,6 +67,4 @@ class SettingsScreen extends ConsumerWidget {
 
 const _legalese = """Lisensiert under GPLv3.
 
-Appen henter data fra Statpeds Tegnordbok og TegnWiki.
-
-YouTube-videoer blir hentet gjennom Piped.video.""";
+Appen henter og viser ordbokdata fra Statpeds Tegnordbok og TegnWiki og henter YouTube-videoer gjennom Piped.video.""";
